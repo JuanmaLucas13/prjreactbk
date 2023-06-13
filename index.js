@@ -8,6 +8,7 @@ const express = require('express')
 // recupero las rutas de los paises.
 const paisesRouter = require("./src/api/routes/paises.routes");
 const userRouter = require("./src/api/routes/user.routes");
+const favoritosRouter = require('./src/api/routes/favoritos.routes');
 
 // import para la conexion con bbdd
 const {connect} = require("./src/utils/db")
@@ -16,7 +17,7 @@ const {connect} = require("./src/utils/db")
 const {isAuth} = require("./src/middlewares/auth")
 
 // importo cors, para acceso desde front.
-const cors = require("cors")
+const cors = require("cors");
 
 // defino puerto para el servidor http
 const PORT = process.env.PORT;
@@ -59,6 +60,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use('/paises', paisesRouter);
 app.use("/user", userRouter);
+app.use("/favoritos", favoritosRouter);
 
 //activo el servidor.
 app.listen(PORT, () => {console.log('Servidor escuchando en:', PORT)})
