@@ -3,11 +3,12 @@ const Pais = require('../models/paises.models');
 const getPaises = async (req, res) => {
    try {
       const allPaises = await Pais.find();
-      if (allPaises.length == 0)
+            if (allPaises.length == 0)
          return res.status(404).json({message:"No hay paises informados."});   
     
       return res.status(200).json(allPaises);   
    } catch (error) {
+    console.log(error);
      return res.status(500).json(error);
    }
 }
