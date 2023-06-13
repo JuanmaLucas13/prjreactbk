@@ -10,8 +10,8 @@ const upload = require("../../middlewares/upload.file");
 // const { isAuth, isAdmin} = require("../../middlewares/auth");
 
 paisesRouter.get("/", getPaises)
-paisesRouter.get("/pais/:id", [isAuth], getPaisesbyId)
-paisesRouter.get("/paginacion", [isAuth],getPaisPaginado)
+paisesRouter.get("/pais/:id", getPaisesbyId)
+paisesRouter.get("/paginacion", getPaisPaginado)
 
 paisesRouter.post("/", [isAuth], postPaises)
 paisesRouter.put("/:id", [isAuth], putPaises)
