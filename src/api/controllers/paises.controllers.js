@@ -62,10 +62,12 @@ const getPaisPaginado = async(req,res) => {
 const getPaisesbyId = async (req, res) => {
     try {
         const {id} = req.params;
+
         const findPais = await Pais.findById(id);
         if (!findPais)
+         {
            return res.status(404).json({message:"No hay pais con el id indicado"});
-  
+         }
         return res.status(200).json(findPais);
      } catch (error) {
        return res.status(500).json(error);
