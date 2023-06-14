@@ -9,9 +9,9 @@ const upload = require("../../middlewares/upload.file");
 // const {getArtist, postArtist, putArtist, deleteArtist} = require("../controllers/artist.controllers");
 // const { isAuth, isAdmin} = require("../../middlewares/auth");
 
-paisesRouter.get("/", getPaises)
-paisesRouter.get("/pais/:id", getPaisesbyId)
-paisesRouter.get("/paginacion", getPaisPaginado)
+paisesRouter.get("/", [isAuth],getPaises)
+paisesRouter.get("/pais/:id", [isAuth],getPaisesbyId)
+paisesRouter.get("/paginacion", [isAuth], getPaisPaginado)
 
 paisesRouter.post("/", [isAuth], postPaises)
 paisesRouter.put("/:id", [isAuth], putPaises)
