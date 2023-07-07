@@ -62,6 +62,9 @@ app.use(express.urlencoded({extended:false}));
 app.use('/paises', paisesRouter);
 app.use("/user", userRouter);
 app.use("/favoritos", favoritosRouter);
+app.use('/', (req, res) => {
+  res.send("estoy en la home")
+})
 
 //activo el servidor.
 app.listen(PORT, () => {console.log('Servidor escuchando en:', PORT)})
